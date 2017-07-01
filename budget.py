@@ -89,6 +89,9 @@ def count_down():
 def waitForFinish():
 	global budget
 	finished = False
+	budget = 9
+	start_time = time.time()
+	os.system("(sleep 70; redis-cli publish tokens F) &")
 	pubsub.subscribe('tokens')
 	while not finished:
 		for item in pubsub.listen():
