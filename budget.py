@@ -100,6 +100,8 @@ def waitForFinish():
 				print item['data']
 				if item['data'] == 'F':
 					finished = True
+					if budget < 10:
+						budget = 10
 					pubsub.unsubscribe()
 				else:
 					budget = int(item['data'])
