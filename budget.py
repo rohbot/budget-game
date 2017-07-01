@@ -89,7 +89,7 @@ def count_down():
 def waitForFinish():
 	global budget
 	finished = False
-	budget = 9
+	budget = 10
 	start_time = time.time()
 	os.system("(sleep 70; redis-cli publish tokens F) &")
 	pubsub.subscribe('tokens')
