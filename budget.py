@@ -6,15 +6,22 @@ import redis
 import pygame
 import RPi.GPIO as GPIO
 #import pyttsx
+r = redis.Redis()
+BASE_CMD = "sudo fbi -T 1 --noverbose -a "
+path = "/home/pi/budget-game/assets/"
 
 def shutdown(channel):
-    logfile = open('shutdown.log', 'a')
-    logfile.write(str(time.time()) + " shutting down\n")
-    logfile.close()
-    #os.system('flite -t "System Shutdown"')
-    print 'Shutdown'
-		
-    os.system('sudo shutdown -h now')
+	logfile = open('shutdown.log', 'a')
+	logfile.write(str(time.time()) + " shutting down\n")
+	logfile.close()
+	#os.system('flite -t "System Shutdown"')
+	print 'Shutdown'
+	cmd = BASE_CMD + path + 'bb.jpg'
+	os.system(cmd)
+
+	r.publish('buttons', 'x')
+	time.sleep(1)	
+	os.system('sudo shutdown -h now')
 
 def setup():
     print "Shutdown script"
@@ -32,15 +39,12 @@ strPort1 = '/dev/ttyACM0'
 ser = serial.Serial(strPort1, 9600)
 #ser2 = serial.Serial(strPort2, 9600)
 
-r = redis.Redis()
 print r.get('name')
 
 TOPIC = 'buttons'
 
 pubsub = r.pubsub()
 
-BASE_CMD = "sudo fbi -T 1 --noverbose -a "
-path = "/home/pi/budget-game/assets/"
 
 WIDTH = 1920
 HEIGHT = 1080
