@@ -4,6 +4,29 @@ import serial
 import sys
 import redis
 import pygame
+import RPi.GPIO as GPIO
+#import pyttsx
+
+def shutdown(channel):
+    logfile = open('shutdown.log', 'a')
+    logfile.write(str(time.time()) + " shutting down\n")
+    logfile.close()
+    #os.system('flite -t "System Shutdown"')
+    print 'Shutdown'
+		
+    os.system('sudo shutdown -h now')
+
+def setup():
+    print "Shutdown script"
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(14, GPIO.IN, pull_up_down = GPIO.PUD_UP)
+    GPIO.setup(12, GPIO.OUT)
+    GPIO.add_event_detect(14, GPIO.FALLING, callback = shutdown, bouncetime = 2000)
+    GPIO.output(12, GPIO.HIGH)
+
+setup()
+
+
 strPort1 = '/dev/ttyACM0'
 
 ser = serial.Serial(strPort1, 9600)
