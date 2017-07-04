@@ -136,6 +136,12 @@ def showLogo():
 	os.system(cmd)
 
 def count_down():
+	global y_item, b_item, g_item
+
+	y_item = {'name': '', 'trans': '', 'price': ''}
+	g_item = {'name': '', 'trans': '', 'price': ''}
+	b_item = {'name': '', 'trans': '', 'price': ''}
+
 	show_image('ready')
 	time.sleep(1)
 	show_image('3')
