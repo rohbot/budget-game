@@ -54,9 +54,9 @@ global budget, pressed, lines
 
 images = {'start':pygame.image.load(path + "BUDRP.png"),
 		'ready':pygame.image.load(path + "BUDGR.png"),
-		'1':pygame.transform.scale(pygame.image.load(path + "BUD01.png"),(WIDTH,HEIGHT)),
-		'2':pygame.transform.scale(pygame.image.load(path + "BUD02.png"),(WIDTH,HEIGHT)),
-		'3':pygame.transform.scale(pygame.image.load(path + "BUD03.png"),(WIDTH,HEIGHT)),
+		'1':pygame.transform.scale(pygame.image.load(path + "BUD01.jpg"),(WIDTH,HEIGHT)),
+		'2':pygame.transform.scale(pygame.image.load(path + "BUD02.jpg"),(WIDTH,HEIGHT)),
+		'3':pygame.transform.scale(pygame.image.load(path + "BUD03.jpg"),(WIDTH,HEIGHT)),
 		'cycle':pygame.transform.scale(pygame.image.load(path + "BUDCY.png"),(WIDTH,HEIGHT)),
 		'logo':pygame.transform.scale(pygame.image.load(path + "bb.jpg"),(WIDTH,HEIGHT)),
 		'game-bg': pygame.transform.scale(pygame.image.load(path + "BUDBG2.png"),(WIDTH,HEIGHT)),
@@ -68,25 +68,25 @@ images = {'start':pygame.image.load(path + "BUDRP.png"),
 		}
 
 
-items = { 'Y':[	{'name': 'Roti Canai', 'trans': '', 'price': '3'},
-				{'name': 'Thosai Masala', 'trans': '', 'price': '4'},
-				{'name': 'Nasi Lemak', 'trans': '', 'price': '4'},
-				{'name': 'Nasi Kerabu', 'trans': '', 'price': '5'},
-				{'name': 'Sup Kambing', 'trans': '', 'price': '5'}
+items = { 'Y':[	{'name': 'Roti Canai', 'trans': '', 'price': 'RM 3'},
+				{'name': 'Thosai Masala', 'trans': '', 'price': 'RM 4'},
+				{'name': 'Nasi Lemak', 'trans': '', 'price': 'RM 4'},
+				{'name': 'Nasi Kerabu', 'trans': '', 'price': 'RM 5'},
+				{'name': 'Sup Kambing', 'trans': '', 'price': 'RM 5'}
 			],
 				
-		'G': [	{'name': 'Tent', 'trans': 'Khemah', 'price': '4'},
-				{'name': 'Cabin', 'trans': 'Kabin', 'price': '5'},
-				{'name': 'Hostel Bunk Bed', 'trans': 'Hostel Katil DUa Tingkat', 'price': '5'},
-				{'name': 'Hotel', 'trans': 'Hotel', 'price': '6'},
-				{'name': 'Serviced Apartment', 'trans': 'Pangsapuri Bersrvis', 'price': '7'}
+		'G': [	{'name': 'Tent', 'trans': 'Khemah', 'price': 'RM 4'},
+				{'name': 'Cabin', 'trans': 'Kabin', 'price': 'RM 5'},
+				{'name': 'Hostel Bunk Bed', 'trans': 'Hostel Katil DUa Tingkat', 'price': 'RM 5'},
+				{'name': 'Hotel', 'trans': 'Hotel', 'price': 'RM 6'},
+				{'name': 'Serviced Apartment', 'trans': 'Pangsapuri Bersrvis', 'price': 'RM 7'}
 			],
 
-		'B': [	{'name': 'Swimming', 'trans': 'Berenang', 'price': '3'},
-				{'name': 'Hiking', 'trans': 'Kembara', 'price': '4'},
-				{'name': 'Rock Climbing', 'trans': 'Daki Tembok', 'price': '4'},
-				{'name': 'Snorkeling', 'trans': 'Mensnorkel', 'price': '5'},
-				{'name': 'Scuba Diving', 'trans': 'Selam Skuba', 'price': '5'}
+		'B': [	{'name': 'Swimming', 'trans': 'Berenang', 'price': 'RM 3'},
+				{'name': 'Hiking', 'trans': 'Kembara', 'price': 'RM 4'},
+				{'name': 'Rock Climbing', 'trans': 'Daki Tembok', 'price': 'RM 4'},
+				{'name': 'Snorkeling', 'trans': 'Mensnorkel', 'price': 'RM 5'},
+				{'name': 'Scuba Diving', 'trans': 'Selam Skuba', 'price': 'RM 5'}
 			]
 		} 
 
@@ -190,13 +190,13 @@ def buttonPressed(colour, num):
 	#print colour, num
 	if colour == 'Y':
 		y_item = items['Y'][num]
-		y_item['price'] = 'RM ' + y_item['price'] 
+		#y_item['price'] = 'RM ' + y_item['price'] 
 	if colour == 'B':
 		b_item = items['B'][num]
-		b_item['price'] = 'RM ' + b_item['price']
+		#b_item['price'] = 'RM ' + b_item['price']
 	if colour == 'G':
 		g_item = items['G'][num]
-		g_item['price'] = 'RM ' + g_item['price']
+		#g_item['price'] = 'RM ' + g_item['price']
 	
 	updateGame()	
 
